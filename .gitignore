@@ -1,0 +1,7 @@
+data/pipeline/chr21_sample_100k
+data/figures/
+output/
+__pycache__/
+*.pyc
+.DS_Store
+.ipynb_checkpoints/
