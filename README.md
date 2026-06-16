@@ -74,3 +74,4 @@ The HGMD (Human Gene Mutation Database) is proprietary and not included — all 
 ## Full pipeline
 
 `chr21_sample_100k` contains the first 100,000 variants of chromosome 21 from the gnomAD v4 exome for demonstration. For production use, download the full gnomAD v4 exome VCF files from https://gnomad.broadinstitute.org/downloads#v4.
+
