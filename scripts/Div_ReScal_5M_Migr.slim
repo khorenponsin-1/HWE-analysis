@@ -1,0 +1,52 @@
+initialize() {
+	initializeMutationRate(1.2e-7);
+	initializeMutationType("m1", 0.5, "f", 0.0);
+	initializeGenomicElementType("g1", m1, 1.0);
+	initializeGenomicElement(g1, 0, 5000000-1);
+	initializeRecombinationRate(1e-7);
+}
+1 early() {
+	sim.readFromPopulationFile("ReScal_5M_p0.trees");
+	sim.addSubpopSplit("p1", 1000, p0);
+	sim.addSubpopSplit("p2", 1000, p0);
+	p1.setMigrationRates(p2, 0.001);
+	p2.setMigrationRates(p1, 0.001);
+	p0.genomes.outputVCF(filePath="ReScal_5M_p0.vcf");
+	p0.setSubpopulationSize(0);
+}
+
+
+25 late() {
+	p1.genomes.outputVCF(filePath="ReScal_5M_Migr_250div_p1.vcf");
+	p2.genomes.outputVCF(filePath="ReScal_5M_Migr_250div_p2.vcf");
+	community.allSubpopulations.genomes.outputVCF(filePath="ReScal_5M_Migr_250div_p_total.vcf");
+}
+
+50 late() {
+	p1.genomes.outputVCF(filePath="ReScal_5M_Migr_500div_p1.vcf");
+	p2.genomes.outputVCF(filePath="ReScal_5M_Migr_500div_p2.vcf");
+	community.allSubpopulations.genomes.outputVCF(filePath="ReScal_5M_Migr_500div_p_total.vcf");
+}
+
+
+75 late() {
+	p1.genomes.outputVCF(filePath="ReScal_5M_Migr_750div_p1.vcf");
+	p2.genomes.outputVCF(filePath="ReScal_5M_Migr_750div_p2.vcf");
+	community.allSubpopulations.genomes.outputVCF(filePath="ReScal_5M_Migr_750div_p_total.vcf");
+}
+
+
+100 late() {
+	p1.genomes.outputVCF(filePath="ReScal_5M_Migr_1000div_p1.vcf");
+	p2.genomes.outputVCF(filePath="ReScal_5M_Migr_1000div_p2.vcf");
+	community.allSubpopulations.genomes.outputVCF(filePath="ReScal_5M_Migr_1000div_p_total.vcf");
+}
+
+
+200 late() {
+	p1.genomes.outputVCF(filePath="ReScal_5M_Migr_2000div_p1.vcf");
+	p2.genomes.outputVCF(filePath="ReScal_5M_Migr_2000div_p2.vcf");
+	community.allSubpopulations.genomes.outputVCF(filePath="ReScal_5M_Migr_2000div_p_total.vcf");
+	sim.simulationFinished();
+}
+

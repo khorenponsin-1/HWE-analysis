@@ -1,4 +1,5 @@
 data/pipeline/chr21_sample_100k
+data/simulations/*.vcf
 data/figures/
 output/
 __pycache__/
